@@ -7,6 +7,7 @@ Este arquivo registra o que ja foi definido e o que ainda falta em cada fase.
 - Visao do produto e objetivos do MVP definidos.
 - Modulos e telas iniciais definidos.
 - Fluxo de aprovacao individual definido.
+- Regra: concluir tarefa exige 2 fotos obrigatorias (mobile-first).
 
 ### A Fazer
 - Detalhar campos por tela (tarefas, aprovacoes, dashboard).
@@ -17,6 +18,10 @@ Este arquivo registra o que ja foi definido e o que ainda falta em cada fase.
 ### Feito
 - Tela de login mockada (usuario/senha admin).
 - Dashboard mockado (progresso semanal, tarefas e aprovacoes).
+- Tela de tarefas mockada (lista, pendencias, regras e fluxo de fotos).
+- Tela de aprovacoes mockada (lista, fluxo e atividade).
+- Tela de configuracoes mockada (perfil, preferencias e seguranca).
+- Tela de calendario mockada (visao semanal e reunioes).
 
 ### A Fazer
 - Criar wireframes simples.

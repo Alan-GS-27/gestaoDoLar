@@ -24,16 +24,16 @@ export default function Home() {
       <div className="pointer-events-none absolute -top-24 right-0 h-72 w-72 rounded-full bg-[#f9d7c7] blur-3xl" />
       <div className="pointer-events-none absolute bottom-0 left-0 h-72 w-72 rounded-full bg-[#f1c0a5] blur-3xl" />
 
-      <main className="mx-auto flex min-h-screen w-full max-w-6xl flex-col items-center justify-center px-6 py-14 lg:flex-row lg:justify-between lg:gap-12">
-        <section className="w-full max-w-xl space-y-8">
+      <main className="mx-auto flex min-h-screen w-full max-w-6xl flex-col items-center justify-center px-4 py-10 sm:px-6 sm:py-14 lg:flex-row lg:justify-between lg:gap-12">
+        <section className="w-full max-w-xl space-y-7 sm:space-y-8">
           <div className="space-y-4">
             <p className="text-sm uppercase tracking-[0.3em] text-[#8c3b1c]">
               Gestao do Lar
             </p>
-            <h1 className="font-display text-4xl leading-tight text-[#1c1a16] sm:text-5xl">
+            <h1 className="font-display text-3xl leading-tight text-[#1c1a16] sm:text-5xl">
               A casa em ordem com responsabilidade coletiva.
             </h1>
-            <p className="text-lg text-[#6c6055]">
+            <p className="text-base text-[#6c6055] sm:text-lg">
               Combine tarefas, acompanhe a semana e aprove tudo em grupo. Este
               login e simulado por enquanto.
             </p>
@@ -55,7 +55,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="mt-12 w-full max-w-md lg:mt-0">
+        <section className="mt-10 w-full max-w-md lg:mt-0">
           <div className="rounded-3xl border border-[#e6d3c5] bg-white/80 p-8 shadow-[0_24px_60px_rgba(28,26,22,0.2)] backdrop-blur">
             <div className="mb-6">
               <h2 className="font-display text-2xl text-[#1c1a16]">

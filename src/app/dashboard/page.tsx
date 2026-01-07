@@ -57,25 +57,25 @@ export default function DashboardPage() {
   const progress = Math.round((weekStats.completed / weekStats.total) * 100);
 
   return (
-    <div className="min-h-screen bg-[radial-gradient(circle_at_top,_rgba(200,107,74,0.18),_transparent_60%)] px-6 py-10">
-      <main className="mx-auto w-full max-w-6xl space-y-10">
-        <header className="flex flex-col gap-4 rounded-3xl border border-[#e6d3c5] bg-white/80 p-8 shadow-[0_24px_60px_rgba(28,26,22,0.12)] backdrop-blur md:flex-row md:items-center md:justify-between">
+    <div className="min-h-screen bg-[radial-gradient(circle_at_top,_rgba(200,107,74,0.18),_transparent_60%)] px-4 py-8 sm:px-6 sm:py-10">
+      <main className="mx-auto w-full max-w-6xl space-y-8 sm:space-y-10">
+        <header className="flex flex-col gap-4 rounded-3xl border border-[#e6d3c5] bg-white/80 p-6 shadow-[0_24px_60px_rgba(28,26,22,0.12)] backdrop-blur md:flex-row md:items-center md:justify-between sm:p-8">
           <div>
             <p className="text-sm uppercase tracking-[0.3em] text-[#8c3b1c]">
               Gestao do Lar
             </p>
-            <h1 className="font-display text-3xl text-[#1c1a16]">
+            <h1 className="font-display text-2xl text-[#1c1a16] sm:text-3xl">
               Dashboard semanal
             </h1>
             <p className="text-sm text-[#6c6055]">
               Visao rapida das tarefas e do consenso da semana.
             </p>
           </div>
-          <div className="flex items-center gap-4">
-            <div className="rounded-2xl border border-[#ead6c9] bg-white px-4 py-3 text-sm text-[#6c6055]">
+          <div className="flex flex-wrap items-center gap-3">
+            <div className="rounded-2xl border border-[#ead6c9] bg-white px-4 py-2 text-sm text-[#6c6055]">
               Casa Horizonte
             </div>
-            <div className="h-11 w-11 rounded-full bg-[#f1c0a5] text-center text-sm font-semibold leading-[2.75rem] text-[#8c3b1c]">
+            <div className="h-10 w-10 rounded-full bg-[#f1c0a5] text-center text-xs font-semibold leading-[2.5rem] text-[#8c3b1c] sm:h-11 sm:w-11 sm:text-sm sm:leading-[2.75rem]">
               AL
             </div>
           </div>

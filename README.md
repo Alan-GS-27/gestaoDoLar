@@ -29,13 +29,16 @@ Sistema de gestao de tarefas domesticas com responsabilidade coletiva. Nao ha ad
 1) Proposta: qualquer membro cria uma tarefa.
 2) Aprovacao: cada membro aprova individualmente.
 3) Ativacao: com 100% de aprovacao, a tarefa vira ativa.
-4) Execucao: responsavel marca como concluida.
+4) Execucao: responsavel marca como concluida com 2 fotos obrigatorias.
 5) Historico: registro de quem concluiu e quando.
 
 ## Regras de Aprovacao
 - Criar/editar/excluir tarefas exige aprovacao de todos.
-- Concluir tarefa nao exige aprovacao.
+- Concluir tarefa nao exige aprovacao, mas exige 2 fotos.
 - Historico registra aprovacoes e conclusoes.
+
+## Diretriz de Uso
+- Mobile-first: experiencia pensada primeiro para celular.
 
 ## Fases (sem codigo por enquanto)
 Fase 1: detalhar telas e campos.
