@@ -16,12 +16,13 @@ Este arquivo registra o que ja foi definido e o que ainda falta em cada fase.
 
 ## Etapa 2: UI/Front (futura)
 ### Feito
-- Tela de login mockada (usuario/senha admin).
+- Tela de login com Supabase (email/senha).
 - Dashboard mockado (progresso semanal, tarefas e aprovacoes).
 - Tela de tarefas mockada (lista, pendencias, regras e fluxo de fotos).
 - Tela de aprovacoes mockada (lista, fluxo e atividade).
 - Tela de configuracoes mockada (perfil, preferencias e seguranca).
 - Tela de calendario mockada (visao semanal e reunioes).
+- Tela de convites (envio por email).
 
 ### A Fazer
 - Criar wireframes simples.
@@ -29,11 +30,14 @@ Este arquivo registra o que ja foi definido e o que ainda falta em cada fase.
 - Montar componentes principais.
 
 ## Etapa 3: Backend e Banco (futura)
-### A Fazer
+### Feito
 - Modelar entidades (usuarios, tarefas, aprovacoes, execucoes).
 - Configurar Supabase (auth + banco).
-- Integrar frontend com o backend.
 - Edge Function para limpeza de fotos (5 dias).
+- Edge Function para convites por email.
+
+### A Fazer
+- Integrar frontend com o backend.
 
 ## Etapa 4: Deploy (futura)
 ### A Fazer
