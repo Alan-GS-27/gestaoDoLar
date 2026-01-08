@@ -33,6 +33,7 @@ Este arquivo registra o que ja foi definido e o que ainda falta em cada fase.
 - Modelar entidades (usuarios, tarefas, aprovacoes, execucoes).
 - Configurar Supabase (auth + banco).
 - Integrar frontend com o backend.
+- Edge Function para limpeza de fotos (5 dias).
 
 ## Etapa 4: Deploy (futura)
 ### A Fazer
