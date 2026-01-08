@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState, type FormEvent } from "react";
-import { supabase } from "@/lib/supabaseClient";
+import { getSupabaseClient } from "@/lib/supabaseClient";
 
 type InviteResult = {
   ok: boolean;
@@ -17,9 +17,14 @@ export default function ConvitesPage() {
   const [sessionReady, setSessionReady] = useState(false);
 
   useEffect(() => {
-    supabase.auth.getSession().then(({ data }) => {
-      setSessionReady(!!data.session);
-    });
+    try {
+      const client = getSupabaseClient();
+      client.auth.getSession().then(({ data }) => {
+        setSessionReady(!!data.session);
+      });
+    } catch {
+      setSessionReady(false);
+    }
   }, []);
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
@@ -27,7 +32,16 @@ export default function ConvitesPage() {
     setMessage(null);
     setIsLoading(true);
 
-    const { data, error } = await supabase.functions.invoke<InviteResult>(
+    let client;
+    try {
+      client = getSupabaseClient();
+    } catch {
+      setMessage("Supabase nao configurado.");
+      setIsLoading(false);
+      return;
+    }
+
+    const { data, error } = await client.functions.invoke<InviteResult>(
       "invite-user",
       {
         body: {

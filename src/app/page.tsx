@@ -2,7 +2,7 @@
 
 import { useState, type FormEvent } from "react";
 import { useRouter } from "next/navigation";
-import { supabase } from "@/lib/supabaseClient";
+import { getSupabaseClient } from "@/lib/supabaseClient";
 
 export default function Home() {
   const [username, setUsername] = useState("");
@@ -16,7 +16,16 @@ export default function Home() {
 
     setMessage(null);
     setIsLoading(true);
-    supabase.auth
+    let client;
+    try {
+      client = getSupabaseClient();
+    } catch {
+      setMessage("Supabase nao configurado.");
+      setIsLoading(false);
+      return;
+    }
+
+    client.auth
       .signInWithPassword({
         email: username.trim(),
         password,
