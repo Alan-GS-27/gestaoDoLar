@@ -41,12 +41,19 @@ Tarefa principal (pode estar ativa ou pendente de aprovacao).
 - household_id (uuid, FK -> households.id)
 - titulo (text)
 - descricao (text, opcional)
-- responsavel_id (uuid, FK -> auth.users.id)
+- responsavel_id (uuid, FK -> auth.users.id) # responsavel principal (legado)
 - status (text: "pendente", "ativa", "concluida")
 - proxima_execucao_em (date, opcional)
 - criado_por (uuid, FK -> auth.users.id)
 - criado_em (timestamptz)
 - atualizado_em (timestamptz)
+
+### task_assignees
+Pessoas responsaveis por executar uma tarefa (1 ou mais).
+- id (uuid, PK)
+- task_id (uuid, FK -> tasks.id)
+- user_id (uuid, FK -> auth.users.id)
+- criado_em (timestamptz)
 
 ### task_recurrences
 Recorrencia da tarefa.
@@ -95,6 +102,8 @@ Fotos obrigatorias da conclusao.
 - Cada membro da casa precisa aprovar (registro em `task_approvals`).
 - Ao atingir 100% de aprovacao: proposta vira "aprovada" e aplica alteracao na `tasks`.
 - Concluir tarefa exige 2 fotos: criar `task_executions` + 2 registros em `task_execution_photos`.
+- Uma tarefa pode ter multiplos responsaveis via `task_assignees`.
+- Tarefa concluida quando todos os responsaveis registrarem execucao.
 - Apenas usuarios presentes em `system_admins` podem acessar telas e operacoes globais do sistema.
 
 ## Observacoes
