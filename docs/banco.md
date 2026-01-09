@@ -14,6 +14,12 @@ Dados de perfil da pessoa.
 - avatar_url (text, opcional)
 - criado_em (timestamptz)
 
+### system_admins
+Usuarios com acesso global ao sistema.
+- id (uuid, PK)
+- user_id (uuid, FK -> auth.users.id, unique)
+- criado_em (timestamptz)
+
 ### households
 Grupo/casa onde as pessoas colaboram.
 - id (uuid, PK)
@@ -89,6 +95,7 @@ Fotos obrigatorias da conclusao.
 - Cada membro da casa precisa aprovar (registro em `task_approvals`).
 - Ao atingir 100% de aprovacao: proposta vira "aprovada" e aplica alteracao na `tasks`.
 - Concluir tarefa exige 2 fotos: criar `task_executions` + 2 registros em `task_execution_photos`.
+- Apenas usuarios presentes em `system_admins` podem acessar telas e operacoes globais do sistema.
 
 ## Observacoes
 - As fotos devem ser guardadas no Supabase Storage.

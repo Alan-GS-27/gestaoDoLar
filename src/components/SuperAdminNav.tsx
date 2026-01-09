@@ -3,37 +3,32 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-const links = [
-  { href: "/", label: "Login" },
-  { href: "/dashboard", label: "Dashboard" },
-  { href: "/tarefas", label: "Tarefas" },
-  { href: "/aprovacoes", label: "Aprovacoes" },
-  { href: "/calendario", label: "Calendario" },
-  { href: "/convites", label: "Convites" },
-  { href: "/configuracoes", label: "Configuracoes" },
+const adminLinks = [
+  { href: "/super-admin", label: "Visao geral" },
+  { href: "/super-admin/lares", label: "Lares" },
+  { href: "/super-admin/usuarios", label: "Usuarios" },
+  { href: "/super-admin/relatorios", label: "Relatorios" },
 ];
 
-export default function TopNav() {
+export default function SuperAdminNav() {
   const pathname = usePathname();
-  if (pathname === "/" || pathname.startsWith("/super-admin")) {
-    return null;
-  }
 
   return (
     <header className="sticky top-0 z-30 border-b border-[#ead6c9] bg-[#f6f1ea]/90 backdrop-blur">
       <div className="mx-auto flex w-full max-w-6xl flex-col gap-3 px-4 py-4 sm:px-6 md:flex-row md:items-center md:justify-between">
         <div className="font-display text-base text-[#1c1a16] sm:text-lg">
-          Gestao do Lar
+          Gestao do Lar · Super Admin
         </div>
         <nav className="flex w-full items-center gap-2 overflow-x-auto pb-1 text-xs sm:text-sm md:w-auto">
-          {links.map((link) => {
+          {adminLinks.map((link) => {
             const isActive =
               pathname === link.href ||
-              (link.href !== "/" && pathname.startsWith(link.href));
+              (link.href !== "/super-admin" &&
+                pathname.startsWith(link.href));
 
             return (
               <Link
-                key={link.href}
+                key={link.label}
                 href={link.href}
                 className={`whitespace-nowrap rounded-full px-4 py-2 transition ${
                   isActive

@@ -8,11 +8,13 @@ Este arquivo registra o que ja foi definido e o que ainda falta em cada fase.
 - Modulos e telas iniciais definidos.
 - Fluxo de aprovacao individual definido.
 - Regra: concluir tarefa exige 2 fotos obrigatorias (mobile-first).
+- Definicao de super admin global do sistema (acesso a todos os lares para suporte).
 
 ### A Fazer
 - Detalhar campos por tela (tarefas, aprovacoes, dashboard).
 - Definir regras finais de aprovacao (100% ou maioria).
 - Priorizar funcionalidades do MVP.
+- Detalhar regras e acessos do super admin (perfis, permissoes e telas).
 
 ## Etapa 2: UI/Front (futura)
 ### Feito

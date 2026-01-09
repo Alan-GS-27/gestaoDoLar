@@ -2,7 +2,7 @@
 - Segundo commit
 
 ## Visao do Produto
-Sistema de gestao de tarefas domesticas com responsabilidade coletiva. Nao ha admin; decisoes importantes passam por aprovacao individual de todos os membros.
+Sistema de gestao de tarefas domesticas com responsabilidade coletiva. Dentro de cada lar nao ha admin; decisoes importantes passam por aprovacao individual de todos os membros. Existe um super admin global do sistema para suporte e administracao de todos os lares.
 
 ## Objetivos do MVP
 - Centralizar tarefas da casa (criar, acompanhar, concluir).
@@ -36,6 +36,11 @@ Sistema de gestao de tarefas domesticas com responsabilidade coletiva. Nao ha ad
 - Criar/editar/excluir tarefas exige aprovacao de todos.
 - Concluir tarefa nao exige aprovacao, mas exige 2 fotos.
 - Historico registra aprovacoes e conclusoes.
+
+## Super Admin (global)
+- Acesso a todos os lares e usuarios, para suporte e administracao do sistema.
+- Pode criar, editar e apagar dados de qualquer lar.
+- Nao participa do consenso interno dos lares.
 
 ## Diretriz de Uso
 - Mobile-first: experiencia pensada primeiro para celular.

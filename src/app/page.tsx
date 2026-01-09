@@ -11,7 +11,7 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     setMessage(null);
@@ -25,20 +25,29 @@ export default function Home() {
       return;
     }
 
-    client.auth
-      .signInWithPassword({
-        email: username.trim(),
-        password,
-      })
-      .then(({ error }) => {
-        if (error) {
-          setMessage("Usuario ou senha incorretos.");
-          return;
-        }
+    const { data, error } = await client.auth.signInWithPassword({
+      email: username.trim(),
+      password,
+    });
 
-        router.push("/dashboard");
-      })
-      .finally(() => setIsLoading(false));
+    if (error) {
+      setMessage("Usuario ou senha incorretos.");
+      setIsLoading(false);
+      return;
+    }
+
+    let isSystemAdmin = false;
+
+    const { data: adminFlag, error: adminError } = await client.rpc(
+      "is_system_admin",
+    );
+
+    if (!adminError && adminFlag === true) {
+      isSystemAdmin = true;
+    }
+
+    router.push(isSystemAdmin ? "/super-admin" : "/dashboard");
+    setIsLoading(false);
   };
 
   return (
