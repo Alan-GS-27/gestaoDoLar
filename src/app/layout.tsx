@@ -3,8 +3,11 @@ import "./globals.css";
 import TopNav from "@/components/TopNav";
 
 export const metadata: Metadata = {
-  title: "Gestao do Lar",
+  title: "Gestão do Lar",
   description: "Gestao de tarefas domesticas com responsabilidade coletiva.",
+  icons: {
+    icon: "/favicon.png",
+  },
 };
 
 export default function RootLayout({
