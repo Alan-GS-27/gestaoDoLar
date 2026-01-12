@@ -159,7 +159,7 @@ export default function DashboardPage() {
         .lte("task.proxima_execucao_em", weekEndStr);
 
       const normalizedTasks = (assignedTasks ?? [])
-        .map((item) => item.task)
+        .flatMap((item) => item.task ?? [])
         .filter(
           (task): task is { id: string; titulo: string; proxima_execucao_em: string } =>
             !!task?.id && !!task?.titulo,
