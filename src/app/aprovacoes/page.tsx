@@ -232,7 +232,7 @@ export default function AprovacoesPage() {
         })),
         ...(recentExecutions ?? []).map((item) => ({
           id: item.id,
-          title: `Tarefa '${item.task?.titulo ?? "Tarefa"}' concluida`,
+          title: `Tarefa '${item.task?.[0]?.titulo ?? "Tarefa"}' concluida`,
           time: formatTime(item.concluido_em),
         })),
       ];
