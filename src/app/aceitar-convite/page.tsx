@@ -1,10 +1,10 @@
 "use client";
 
-import { useEffect, useState, type FormEvent } from "react";
+import { Suspense, useEffect, useState, type FormEvent } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { getSupabaseClient } from "@/lib/supabaseClient";
 
-export default function AceitarConvitePage() {
+function AceitarConviteContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [password, setPassword] = useState("");
@@ -125,5 +125,23 @@ export default function AceitarConvitePage() {
         </section>
       </main>
     </div>
+  );
+}
+
+export default function AceitarConvitePage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="min-h-screen bg-[radial-gradient(circle_at_top,_rgba(200,107,74,0.18),_transparent_60%)] px-4 py-10 sm:px-6 sm:py-12">
+          <main className="mx-auto w-full max-w-xl">
+            <div className="rounded-3xl border border-[#e6d3c5] bg-white/85 p-6 text-center text-sm text-[#6c6055] shadow-[0_24px_60px_rgba(28,26,22,0.12)] sm:p-8">
+              Carregando convite...
+            </div>
+          </main>
+        </div>
+      }
+    >
+      <AceitarConviteContent />
+    </Suspense>
   );
 }
