@@ -56,6 +56,16 @@ const getWeekStart = (baseDate: Date) => {
 const getMonthLabel = (date: Date) =>
   date.toLocaleDateString("pt-BR", { month: "long", year: "numeric" });
 
+const formatTime = (raw: string | null | undefined) => {
+  if (!raw) return "-";
+  const date = new Date(raw);
+  if (Number.isNaN(date.getTime())) return raw;
+  return date.toLocaleTimeString("pt-BR", {
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+};
+
 export default function CalendarioPage() {
   const [days, setDays] = useState<DayItem[]>([]);
   const [events, setEvents] = useState<CalendarEvent[]>([]);
