@@ -150,7 +150,7 @@ export default function CalendarioPage() {
         .lte("task.proxima_execucao_em", weekEndStr);
 
       const tasks = (assignedTasks ?? [])
-        .map((item) => item.task)
+        .flatMap((item) => item.task ?? [])
         .filter(
           (task): task is { id: string; titulo: string; proxima_execucao_em: string } =>
             !!task?.id && !!task?.titulo && !!task?.proxima_execucao_em,
