@@ -266,12 +266,14 @@ export default function TarefasPage() {
 
       const taskRows = (assignedTasks ?? [])
         .map((item) => ({
-          task: item.task as {
-            id: string;
-            titulo: string;
-            status: string | null;
-            proxima_execucao_em: string | null;
-          } | null,
+          task: (Array.isArray(item.task) ? item.task[0] : item.task) as
+            | {
+                id: string;
+                titulo: string;
+                status: string | null;
+                proxima_execucao_em: string | null;
+              }
+            | null,
           recurrence: Array.isArray(item.recurrence)
             ? item.recurrence[0]
             : item.recurrence,
