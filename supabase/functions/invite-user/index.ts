@@ -12,6 +12,7 @@ type InvitePayload = {
   email: string;
   household_id: string;
   redirect_to?: string;
+  access_token?: string;
 };
 
 serve(async (req) => {
@@ -36,7 +37,11 @@ serve(async (req) => {
     );
   }
 
-  const token = req.headers.get("authorization")?.replace("Bearer ", "");
+  const body = (await req.json().catch(() => null)) as InvitePayload | null;
+
+  const headerToken =
+    req.headers.get("authorization") ?? req.headers.get("Authorization");
+  const token = headerToken?.replace("Bearer ", "") ?? body?.access_token ?? "";
   if (!token) {
     return new Response(JSON.stringify({ error: "Missing auth token." }), {
       status: 401,
@@ -60,13 +65,15 @@ serve(async (req) => {
     });
   }
 
-  const body = (await req.json().catch(() => null)) as InvitePayload | null;
   if (!body?.email || !body?.household_id) {
     return new Response(JSON.stringify({ error: "Invalid payload." }), {
       status: 400,
       headers: corsHeaders,
     });
   }
+
+  const redirectTo =
+    body.redirect_to ?? `${url.replace(/\/$/, "")}/aceitar-convite`;
 
   const { data: membership } = await supabase
     .from("household_members")
@@ -93,7 +100,7 @@ serve(async (req) => {
   } else {
     const { data: invited, error: inviteError } =
       await supabase.auth.admin.inviteUserByEmail(body.email, {
-        redirectTo: body.redirect_to,
+        redirectTo,
       });
 
     if (inviteError || !invited?.user) {
